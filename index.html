@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジグソーパズル</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- タイトル画面 -->
+  <div id="titleScreen" class="screen">
+    <h1>ジグソーパズル</h1>
+    <button id="startBtn">はじめる</button>
+  </div>
+
+  <!-- 画像選択画面 -->
+  <div id="selectScreen" class="screen" style="display: none;">
+    <h2>画像を選んでください</h2>
+
+    <label class="file-label">
+      画像を選ぶ
+      <input type="file" id="imageInput" accept="image/*">
+    </label>
+
+    <div class="preview-wrap">
+      <img id="preview" alt="選択画像プレビュー">
+    </div>
+
+    <div class="difficulty-wrap">
+      <label for="difficulty">難易度</label>
+      <select id="difficulty">
+        <option value="2">かんたん（2×2）</option>
+        <option value="3">ふつう（3×3）</option>
+        <option value="4">むずかしい（4×4）</option>
+      </select>
+    </div>
+
+    <div class="button-row">
+      <button id="backToTitleBtn">戻る</button>
+      <button id="nextBtn" disabled>次へ</button>
+    </div>
+  </div>
+
+  <!-- パズル画面 -->
+  <div id="gameScreen" class="screen" style="display: none;">
+    <h2>パズル</h2>
+
+    <div class="game-info">
+      <span id="difficultyText"></span>
+    </div>
+
+    <div id="puzzle"></div>
+
+    <div class="button-row">
+      <button id="backToSelectBtn">戻る</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
