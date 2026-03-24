@@ -22,6 +22,11 @@ const hintImage = document.getElementById("hintImage");
 
 const historyList = document.getElementById("historyList");
 
+
+const bgm = document.getElementById("bgm");
+const clearSe = document.getElementById("clearSe");
+
+
 let imageSrc = null;
 let size = 2;
 let tiles = [];
@@ -37,6 +42,22 @@ let puzzleWidth = 320;
 let puzzleHeight = 320;
 
 const HISTORY_KEY = "puzzle_history";
+//BGM
+let bgmStarted = false;
+
+function startBgm() {
+  if (bgmStarted) return;
+
+  bgm.volume = 0.3; // 0.0 ～ 1.0
+  bgm.play()
+    .then(() => {
+      bgmStarted = true;
+    })
+    .catch((error) => {
+      console.log("BGM再生失敗:", error);
+    });
+}
+
 
 // 画面切り替え
 function showScreen(screen) {
@@ -50,6 +71,7 @@ function showScreen(screen) {
 
 // タイトル → 画像選択
 startBtn.addEventListener("click", () => {
+  startBgm();
   showScreen(selectScreen);
 });
 
@@ -263,13 +285,20 @@ function selectTile(index) {
   selected = null;
   render();
 
-  if (isCleared()) {
-    saveCompletedImage();
-    setTimeout(() => {
-      alert("完成！");
-      showScreen(titleScreen);
-    }, 100);
-  }
+if (isCleared()) {
+  saveCompletedImage();
+
+  clearSe.currentTime = 0;
+  clearSe.volume = 0.6;
+  clearSe.play().catch((error) => {
+    console.log("クリアSE再生失敗:", error);
+  });
+
+  setTimeout(() => {
+    alert("完成！");
+    showScreen(titleScreen);
+  }, 100);
+}
 }
 
 // クリア判定
