@@ -73,6 +73,7 @@ function showScreen(screen) {
 startBtn.addEventListener("click", () => {
   startBgm();
   showScreen(selectScreen);
+  alert("BGM再生を試します");
 });
 
 // タイトル → 履歴画面
