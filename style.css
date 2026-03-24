@@ -7,7 +7,7 @@ body {
 }
 
 .screen {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -46,9 +46,9 @@ input[type="file"] {
 }
 
 #preview {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
   border: 3px solid #333;
   border-radius: 12px;
   background: white;
@@ -66,6 +66,19 @@ input[type="file"] {
   margin-bottom: 12px;
   font-size: 18px;
   font-weight: bold;
+}
+
+#hintArea {
+  margin: 16px 0;
+}
+
+#hintImage {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border: 3px solid #333;
+  border-radius: 12px;
+  background: white;
 }
 
 #puzzle {
@@ -88,4 +101,39 @@ input[type="file"] {
 
 .tile.selected {
   border: 5px solid orange;
+}
+
+#historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.history-item {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.history-item img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px;
+  background: white;
+}
+
+.history-date {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.empty-text {
+  color: #555;
+  margin-top: 20px;
 }

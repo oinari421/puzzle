@@ -12,6 +12,7 @@
   <div id="titleScreen" class="screen">
     <h1>ジグソーパズル</h1>
     <button id="startBtn">はじめる</button>
+    <button id="historyBtn">思い出</button>
   </div>
 
   <!-- 画像選択画面 -->
@@ -50,10 +51,25 @@
       <span id="difficultyText"></span>
     </div>
 
-    <div id="puzzle"></div>
-
     <div class="button-row">
+      <button id="hintBtn">ヒントを見る</button>
       <button id="backToSelectBtn">戻る</button>
+    </div>
+
+    <div id="hintArea" style="display: none;">
+      <p>完成イメージ</p>
+      <img id="hintImage" alt="ヒント画像">
+    </div>
+
+    <div id="puzzle"></div>
+  </div>
+
+  <!-- 履歴画面 -->
+  <div id="historyScreen" class="screen" style="display: none;">
+    <h2>思い出</h2>
+    <div id="historyList"></div>
+    <div class="button-row">
+      <button id="backFromHistoryBtn">戻る</button>
     </div>
   </div>
 
